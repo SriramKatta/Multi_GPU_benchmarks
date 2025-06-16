@@ -1,7 +1,7 @@
 #pragma once
 
 constexpr int number_of_warmups = 10;
-constexpr int maxIt = 10000;
+constexpr int maxIt = 5000;
 
 #ifdef USE_NCCL
 #include <nccl.h>
