@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 
     std::swap(a, a_new);
   }
-  CUDA_CALL(cudaDeviceSynchronize());
+  nvshmemx_barrier_all_on_stream(compute_stream);
   double dur = (MPI_Wtime() - start) / maxIt;
   double maxdur = 0.0;
   MPI_CALL(MPI_Reduce(&dur, &maxdur, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD));
